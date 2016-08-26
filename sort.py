@@ -1,4 +1,4 @@
-# all ranking algorithms
+# all sort algorithms
 
 
 def InsertSort(alist):

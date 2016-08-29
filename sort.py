@@ -60,9 +60,23 @@ print alist
 
 
 def partition(alist, low, high):
+	piv = alist[high]
+	pos = low - 1
+
+	for i in range(low, high):
+		if alist[i] <= piv:
+			pos = pos + 1
+			alist[pos], alist[i] = alist[i], alist[pos]
+
+	alist[high], alist[pos + 1] = alist[pos + 1], piv
+	return pos + 1
 
 
 def QuickSort(alist, low, high):
+	if low < high:
+		pos = partition(alist, low, high)
+		QuickSort(alist, low, pos - 1)
+		QuickSort(alist, pos + 1, high)
 
 
 alist = [9, 8, 7, 10, 12, 6, 5, 18, 2]
